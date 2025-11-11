@@ -1,0 +1,1072 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Afap Animations</title>
+        <link rel="stylesheet" href="./main.css" />
+        <style>
+            .row-right, .row-left{
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                column-gap: 5px; 
+                margin-top: 5px;
+            }
+            .row-left {
+                justify-content: flex-start;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <!-- Tab Buttons -->
+            <div class="tabs">
+                <button class="tab-button active" data-tab="tab1">Preview</button>
+                <button class="tab-button" data-tab="tab2">Custom</button>
+                <button class="tab-button" data-tab="tab3">Slider</button>
+                <button class="tab-button" data-tab="tab4">Config</button>
+                <button class="tab-button" data-tab="tab6">Motionable</button>
+                <button class="tab-button" data-tab="tab7">Transition</button>
+                <button class="tab-button" data-tab="tab8">Preloader</button>
+                <button class="tab-button" data-tab="tab9">ThreeJs</button>
+                <button class="tab-button" data-tab="tab10">SVG</button>
+                <button class="tab-button" data-tab="tab11">Flip</button>
+                <button class="tab-button" data-tab="tab12">Extras</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content active" id="tab1">
+                <div class="card-section">
+                    <div class="card">
+                        <h3>Animation Preview</h3>
+                        <p>Preview list of various animation and features we offer.</p>
+                        <!-- Content goes here -->
+                        <div>
+                            <section anim-sample="text">
+                                <div class="column" anim-sample="list">
+                                    <div class="animation-card" anim-sample="card">
+                                        <small class="animation-card-title" anim-sample="title">title</small>
+                                        <h2 anim-sample="desc">Hello description</h2>
+                                        <br>
+                                        <div anim-sample="box" style="height: 300px;"></div>
+                                    </div>
+                                </div>
+                            </section>
+                    
+                            <section  anim-sample="ui">
+                                <div class="column" anim-sample="list"></div>
+                            </section>
+                        </div>
+                    </div>
+                    <!-- Add more cards like the one above here -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab2">
+                <div class="card-section" anim-app="container">
+                    <div class="card">
+                        <h3>Custom animation.</h3>
+                        <p>Feel free to express your creativity with our customization panel.</p>
+                        
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="types">Type</label>
+                                <select id="types" anim-app="types"></select>
+                                <div anim-app="sub-types-container">
+                                    <label for="subtypes">Animation Types:</label>
+                                    <select id="subtypes" anim-app="sub-types"></select>
+                                </div>
+                                <label for="duration">Duration:</label>
+                                <input id="duration" type="number" placeholder="Duration" anim-app="duration" />
+                                <label for="delay">Delay:</label>
+                                <input id="delay" type="number" placeholder="Delay" anim-app="delay" />
+                                
+                                <div>
+                                    <label for="id">Element ID:</label>
+                                    <input type="text" id="id" placeholder="ID" anim-app="id" />
+                                    <div class="row" style="justify-content: flex-end; column-gap: 5px; margin-top: 5px;">
+                                        <button class="action-button-sm" anim-app="id-create" title="Generate ID">Gen</button>
+                                        <button class="action-button-sm" anim-app="id-apply" title="Apply ID">Apply</button>
+                                        <button class="action-button-sm bg-red" anim-app="id-remove" title="Remove ID">Del</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <label for="events">Events</label>
+                                <select id="events" anim-app="events"></select>
+                                <label for="screenpos">Screen Position:</label>
+                                <select id="screenpos" anim-app="screenpos"></select>
+                                <label for="easing">Ease:</label>
+                                <select id="easing" anim-app="ease"></select>
+                                <div>
+                                    <label for="trigger">Trigger Element ID:</label>
+                                    <input type="text" id="trigger" placeholder="Enter ID" anim-app="trigger" />
+                                    <div class="row" style="justify-content: flex-end; column-gap: 5px; margin-top: 5px;">
+                                        <button class="action-button-sm" anim-app="trigger-create" title="Generate ID">Gen</button>
+                                        <button class="action-button-sm" anim-app="trigger-apply" title="Apply ID to trigger">Apply</button>
+                                        <button class="action-button-sm bg-red" anim-app="trigger-remove" title="Remove ID from trigger">Del</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" anim-app="more-options-wrap">
+                            <label>Reverse <input type="checkbox" anim-app="reverse"></label>
+                            <label>Loop <input type="checkbox" anim-app="loop"></label>
+                            <label>Repeat <input type="checkbox" anim-app="repeat">
+                                <input class="input-min" type="number" anim-app="repeat-count" value="0">
+                            </label>
+                        </div>
+
+                        <label>Enable Playground <input type="checkbox" anim-app="playground-check"></label> 
+                        <section>
+                            <div class="animation-box" anim-app="playground">this is a playground for our animation live test.</div>
+                        </section>
+
+                        <div anim-app="prop-container">
+                            <div class="row">
+                                <label>Animating Properties</label>
+                                <select anim-app="prop-select"></select>
+                                <button class="action-button" anim-app="prop-add">Add</button>
+                            </div>
+                            <div class="prop-wrap" anim-app="prop-wrap">
+                                <div class="row prop-header">
+                                    <label class="w40">Property Name</label> 
+                                    <label class="w30">From</label> 
+                                    <label class="w30">To</label>
+                                </div>
+                                <div class="row" anim-app="prop-item">
+                                    <label class="w30" anim-app="prop-item-name">Name</label>
+                                    <input class="w25" anim-app="prop-item-from" placeholder="from">
+                                    <input class="w25" anim-app="prop-item-to" placeholder="to">
+                                    <button class="action-button" anim-app="prop-item-delete">Del</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-row">
+                            <button class="action-button" anim-app="reset">Reset</button>
+                            <button class="action-button" anim-app="remove">Remove</button>
+                            <button class="action-button" anim-app="apply">Apply</button>
+                        </div>
+
+                        <div af-pattern-app="container">
+                            <div class="row" style="margin-top: 20px;">
+                                <label>Enable Patternable <input type="checkbox" anim-app="pattern-switch" style="margin-left: 3px;"></label>
+                                <button class="action-button" anim-app="pattern-import">Import Animation</button>
+                            </div>
+                            <div anim-app="pattern-container">
+                                <!-- Patternable -->
+                                <div class="prop-wrap">
+                                    <div class="row prop-header w40">
+                                        <label>Patternable</label>
+                                    </div>
+                                    <h4>Pattern Your Animation</h4>
+                                    <p>Organize your afap animations just like external css stylesheet pattern.</p>
+                                    <div anim-app="pattern-list">
+                                        <div class="row" anim-app="pattern-item">
+                                            <input class="w50" anim-app="pattern-item-name" placeholder="id">
+                                            <button class="action-button" anim-app="pattern-item-edit" hidden>Edit</button>
+                                            <button class="action-button" anim-app="pattern-item-del">Del</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr style="height: 3px; margin-top: 10px; margin-bottom: 10px;">
+
+                                <div class="button-row">
+                                    <button class="action-button" anim-app="pattern-export">Export</button>
+                                    <button class="action-button" anim-app="pattern-upload" hidden>Upload</button>
+                                    <button class="action-button" anim-app="pattern-reset">Reset</button>
+                                </div>
+
+                                <div class="console-body" anim-app="pattern-console-body">
+                                    <div class="console-header">
+                                        <span>Console</span>
+                                        <button class="close-button" anim-app="pattern-console-close">X</button>
+                                    </div>
+                                    <textarea anim-app="pattern-console-textarea" placeholder="Console output will appear here..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                    <!-- Add more cards like the one above here -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab3">
+                <div class="card-section" af-slider-app="container">
+                    <div class="card">
+                        <h3>Slider</h3>
+                        <p>Configure a simple slider. "Apply" or "Remove" slider attributes.</p>
+                        <!-- Card content similar to above -->
+                        <div class="input-group">
+                            <span>Slider main container wrapping all slider element.</span>
+                            <div>
+                                <span>duration</span>
+                                <input type="number" af-slider-app="duration" placeholder="500ms" />
+                            </div>
+                            <div>
+                                <span>delay</span>
+                                <input type="number" af-slider-app="delay" placeholder="2000ms" />
+                            </div>
+                            <div>
+                                <span>slides in view</span>
+                                <input type="number" af-slider-app="slideinview" placeholder="1" />
+                            </div>
+                            <span>Loop <input type="checkbox" af-slider-app="loop" style="margin-left: 3px;"></span>
+                            <span>Auto slide <input type="checkbox" af-slider-app="autoslide" style="margin-left: 3px;"></span>
+
+                            <div class="row-right">
+                                <button class="action-button-sm" af-slider-app="slider-container-apply">Apply</button>    
+                                <button class="action-button-sm bg-red" af-slider-app="slider-container-remove">Remove</button>
+                            </div>             
+                        </div>
+                        <br>
+                        <span>Select:</span>
+                        <div class="input-row">
+                            <label class="w50">Slider container directly wrapping all slides.</label>
+                            <div class="w50">
+                                <button class="action-button-sm" af-slider-app="slides-wrapper-button-apply">Apply</button>    
+                                <button class="action-button-sm bg-red" af-slider-app="slides-wrapper-button-remove">Remove</button>
+                            </div>             
+                        </div>
+                        <div class="input-row">
+                            <label class="w50">Slider previous button</label>
+                            <div class="w50">
+                                <button class="action-button-sm" af-slider-app="slide-prev-button-apply">Apply</button>    
+                                <button class="action-button-sm bg-red" af-slider-app="slide-prev-button-remove">Remove</button>
+                            </div>             
+                        </div>
+                        <div class="input-row">
+                            <label class="w50">Slider next button</label>
+                            <div class="w50">
+                                <button class="action-button-sm" af-slider-app="slide-next-button-apply">Apply</button>    
+                                <button class="action-button-sm bg-red" af-slider-app="slide-next-button-remove">Remove</button>
+                            </div>             
+                        </div>
+                        <!-- <label>Enable Playground <input type="checkbox" anim-app="playground-check"></label> --> 
+
+                        <!-- <div class="button-row">
+                            <button class="action-button" af-slider-app="reset">Reset</button>
+                        </div> -->
+                    </div>
+                    <!-- Add more cards here -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab4">
+                <div class="card-section">
+                    <div class="card">
+                        <h3>Configuration</h3>
+                        <p>Config the animation on your site.</p>
+                        <!-- Card content similar to above -->
+                        <div style="margin-bottom: 10px;">
+                            <label>Premium Key</label>
+                            <input type="text" placeholder="Enter Your Premium Key" anim-app="premium-key" />
+                            <i><small anim-app="premium-status"></small></i>
+                        </div>
+                        
+
+                        <span>Animation CDN</span>
+                        <div class="row">
+                            <input type="text"  af-copyer="text" readonly anim-app-premiumios value='<script src="https://afap.app/libs/afap/afap.js"></script>'>
+                            <button class="action-button" af-copyer="btn">copy</button>
+                        </div>
+                        <div class="row">
+                            <input type="text" af-copyer="text" readonly value='<script src="https://afap.app/libs/afap/attributes.js"></script>'>
+                            <button class="action-button" af-copyer="btn">copy</button>
+                        </div>
+                        <span>Slider CDN</span>
+                        <div class="row">
+                            <input type="text" style="word-break: break-word;" readonly af-copyer="text" value='<script src="https://afap.app/libs/slider/slider.js"></script>'>
+                            <button class="action-button" af-copyer="btn">copy</button>
+                        </div>
+                        <span>Motionable CDN</span>
+                        <div class="row">
+                            <input type="text" style="word-break: break-word;" readonly af-copyer="text" anim-app-premiumios value='<script src="https://afap.app/libs/motionable/motionable.js"></script>'>
+                            <button class="action-button" af-copyer="btn">copy</button>
+                        </div>
+                        <span>Preloader CDN</span>
+                        <div class="row">
+                            <input type="text" style="word-break: break-word;" readonly af-copyer="text" anim-app-premiumios value='<script src="https://afap.app/libs/preloadable/preloadable.js"></script>'>
+                            <button class="action-button" af-copyer="btn">copy</button>
+                        </div>
+                        <span>Transition CDN</span>
+                        <div class="row">
+                            <input type="text" style="word-break: break-word;"  readonly  af-copyer="text" anim-app-premiumios value='<script src="https://afap.app/libs/transition/transition.js"></script>'>
+                            <button class="action-button" af-copyer="btn">copy</button>
+                        </div>
+                        <span>Moveable CDN</span>
+                        <div class="row">
+                            <input type="text" style="word-break: break-word;" readonly af-copyer="text" anim-app-premiumios value='<script src="https://afap.app/libs/move/move.js"></script>'>
+                            <button class="action-button" af-copyer="btn">copy</button>
+                        </div>
+                        <span>ThreeJs CDN</span>
+                        <div class="row">
+                            <input type="text" style="word-break: break-word;"  readonly af-copyer="text" value='<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>'>
+                            <button class="action-button" af-copyer="btn">copy</button>
+                        </div>
+                        <div class="row">
+                            <input type="text" style="word-break: break-word;" readonly af-copyer="text" anim-app-premiumios value='<script src="https://afap.app/libs/three/threejs.js"></script>'>
+                            <button class="action-button" af-copyer="btn">copy</button>
+                        </div>
+                        <span>SVG CDN</span>
+                        <div class="row">
+                            <input type="text" style="word-break: break-word;" readonly af-copyer="text" anim-app-premiumios value='<script src="https://afap.app/libs/svg/svg.js"></script>'>
+                            <button class="action-button" af-copyer="btn">copy</button>
+                        </div>
+                    </div>
+                    <!-- Add more cards here -->
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab6">
+                <div class="card-section">
+                    <div class="card" af-motion-app="container">
+                        <h3>Motionable(Physics Animation)</h3>
+                        <p>Animate with motion. Add motion and more live to animation on webpage.</p>
+                        <!-- Content goes here -->
+                        <div>
+                            <h4>World</h4>
+                            <div class="input-row">
+                                <div>
+                                    <span>Gravity</span>
+                                    <input type="number" af-motion-app="gravity" placeholder="gravity"/>
+                                </div>
+                                <div>
+                                    <span>Time Scale</span>
+                                    <input type="number" af-motion-app="time-scale" placeholder="time scale"/>
+                                </div>
+                            </div>
+                            <div class="row-left">
+                                <button class="action-button-sm" af-motion-app="world-apply">Apply</button>
+                                <button class="action-button-sm" af-motion-app="world-remove">Remove</button>
+                                <button class="action-button-sm" af-motion-app="world-reset">Reset</button>
+                            </div>
+                        </div>
+                        
+                        <hr style="height: 3px; margin-top: 10px; margin-bottom: 10px;">
+
+                        <div>
+                            <h4>Body</h4>
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <div>
+                                        <span>Type</span>
+                                        <select af-motion-app="type"></select>
+                                    </div>
+                                    <div>
+                                        <span>Shape</span>
+                                        <select af-motion-app="shape"></select>
+                                    </div>
+                                    <div>
+                                        <span>mass</span>
+                                        <input type="number" af-motion-app="mass" >
+                                    </div>
+                                    <span>Enable Drag <input type="checkbox" af-motion-app="drag" style="margin-left: 3px;"></span>
+                                    <span>Enable Float <input type="checkbox" af-motion-app="float" style="margin-left: 3px;"></span>
+                                    <span>Enable Fixed <input type="checkbox" af-motion-app="fixed" style="margin-left: 3px;"></span>
+                                    
+                                </div>
+                                <div class="input-group">
+                                    <div>
+                                        <span>velocity x/y</span>
+                                        <div class="input-row">
+                                            <input type="number" af-motion-app="velocity-x" placeholder="X">
+                                            <input type="number" af-motion-app="velocity-y" placeholder="Y">
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <span>friction</span>
+                                        <input type="number" af-motion-app="friction">
+                                    </div>
+                                    <div>
+                                        <span>restitution</span>
+                                        <input type="number" af-motion-app="restitution">
+                                    </div>
+                                    <div>
+                                        <span>radius</span>
+                                        <input type="number" af-motion-app="radius">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="button-row row-left">
+                                <button class="action-button-sm" af-motion-app="body-apply">Apply</button>
+                                <button class="action-button-sm" af-motion-app="body-remove">Remove</button>
+                                <button class="action-button-sm" af-motion-app="body-reset">Reset</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab7">
+                <div class="card-section">
+                    <div class="card" af-transit-app="container">
+                        <h3>Transition</h3>
+                        <p>Add Transition animation to your page.</p>
+                        <!-- Content goes here -->
+                        <div class="input-row">
+                            <div class="input-group">
+                                <span>Enter animation</span>
+                                <select af-transit-app="enter"></select>
+                                <span>Leave animation</span>
+                                <select af-transit-app="leave"></select>
+                                <div>
+                                    <span>Enter function name</span>
+                                    <input type="text" af-transit-app="enterfunc" placeholder="Enter custom function name" />
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <span>Easing</span>
+                                <select af-transit-app="easing"></select>
+                                <span>Duration</span>
+                                <input type="number" placeholder="1000ms" af-transit-app="duration" />
+                                <div>
+                                    <span>Leave function name</span>
+                                    <input type="text" af-transit-app="leavefunc" placeholder="Enter custom function name" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-row">
+                            <button class="action-button" af-transit-app="apply">Apply</button>
+                            <button class="action-button" af-transit-app="remove">Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab8">
+                <div class="card-section">
+                    <div class="card" af-preload-app="container">
+                        <h3>Preloader</h3>
+                        <p>Add more spicy effect before image, text and other elements loads.</p>
+                        <!-- Content goes here -->
+                        <div>
+                            <h4>Preloader Container</h4>
+                            <div class="input-row">
+                                <div>
+                                    <span>Use preloader container</span>
+                                    <input type="checkbox" af-preload-app="use-preload-container" style="margin-left: 3px;"/>
+                                </div>
+                            </div>
+                            <div class="row-left">
+                                <button class="action-button-sm" af-preload-app="apply-preload-container">Apply</button>
+                                <button class="action-button-sm bg-red" af-preload-app="remove-preload-container">Remove</button>
+                            </div>
+                        </div>
+                        
+                        <hr style="height: 3px; margin-top: 10px; margin-bottom: 10px;">
+
+                        <div>
+                            <h4>Preloader Element</h4>
+                            <small>Use "," to seperate words, phrase or sentence in Text | Word | Custom property.</small>
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <div>
+                                        <span>Preloaders List</span>
+                                        <select af-preload-app="preload-list"></select>
+                                    </div>
+                                    <div>
+                                        <span>direction</span>
+                                        <select af-preload-app="direction"></select>
+                                    </div>
+                                    <div>
+                                        <span>type</span>
+                                        <select af-preload-app="type"></select>
+                                    </div>
+                                    <div>
+                                        <span>loop</span>
+                                        <input type="checkbox" af-preload-app="loop">
+                                    </div>
+                                    <div>
+                                        <span>enable trail</span>
+                                        <input type="checkbox" af-preload-app="istrail">
+                                    </div>
+                                    <div>
+                                        <span>show Loading text</span>
+                                        <input type="checkbox" af-preload-app="loadingtext">
+                                    </div>
+                                    <div>
+                                        <span>duration</span>
+                                        <input type="number" af-preload-app="duration">
+                                    </div>
+                                    <div>
+                                        <span>size</span>
+                                        <input type="number" af-preload-app="size">
+                                    </div>
+                                    <div>
+                                        <span>thickness</span>
+                                        <input type="number" af-preload-app="thickness">
+                                    </div>
+                                    <div>
+                                        <span>height</span>
+                                        <input af-preload-app="height" placeholder="10px|rem|%">
+                                    </div>
+                                    <div>
+                                        <span>count</span>
+                                        <input type="number" af-preload-app="count">
+                                    </div>
+                                    <div>
+                                        <span>length</span>
+                                        <input type="number" af-preload-app="length">
+                                    </div>
+                                    <div>
+                                        <span>amplitude</span>
+                                        <input type="number" af-preload-app="amplitude">
+                                    </div>
+                                    <div>
+                                        <span>text</span>
+                                        <input af-preload-app="text">
+                                    </div>
+                                    <div>
+                                        <span>Words</span>
+                                        <input af-preload-app="words">
+                                    </div>
+                                    <div>
+                                        <span>customs</span>
+                                        <input af-preload-app="customs">
+                                    </div>
+                                    <div>
+                                        <span>thick</span>
+                                        <input af-preload-app="thick">
+                                    </div>
+
+                                </div>
+                                <div class="input-group">
+                                    <div>
+                                        <span>fallback timeout</span>
+                                        <input type="number" af-preload-app="timeout">
+                                    </div>
+                                    <div>
+                                        <span>background color</span>
+                                        <input type="text" af-preload-app="bgcolor">
+                                    </div>
+                                    <div>
+                                        <span>color</span>
+                                        <input type="text" af-preload-app="color">
+                                    </div>
+                                    <div>
+                                        <span>pointerColor</span>
+                                        <input type="text" af-preload-app="pcolor">
+                                    </div>
+                                    <div>
+                                        <span>trailColor</span>
+                                        <input af-preload-app="tcolor">
+                                    </div>
+                                    <div>
+                                        <span>width</span>
+                                        <input af-preload-app="width" placeholder="10px|rem|%">
+                                    </div>
+                                    <div>
+                                        <span>speed</span>
+                                        <input type="number" af-preload-app="speed">
+                                    </div>
+                                    <div>
+                                        <span>radius</span>
+                                        <input type="number" af-preload-app="radius">
+                                    </div>
+                                    <div>
+                                        <span>stroke</span>
+                                        <input type="number" af-preload-app="stroke">
+                                    </div>
+                                    <div>
+                                        <span>interval</span>
+                                        <input type="number" af-preload-app="interval">
+                                    </div>
+                                    <div>
+                                        <span>rowCount</span>
+                                        <input type="number" af-preload-app="xcount">
+                                    </div>
+                                    <div>
+                                        <span>rowGap</span>
+                                        <input type="number" af-preload-app="xgap">
+                                    </div>
+                                    <div>
+                                        <span>columnCount</span>
+                                        <input type="number" af-preload-app="ycount">
+                                    </div>
+                                    <div>
+                                        <span>columnGap</span>
+                                        <input type="number" af-preload-app="ygap">
+                                    </div>
+                                    <div>
+                                        <span>fadeInDuration</span>
+                                        <input af-preload-app="induration">
+                                    </div>
+                                    <div>
+                                        <span>fadeOutDuration</span>
+                                        <input af-preload-app="outduration">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <span>Use Preloader Element <input type="checkbox" af-preload-app="use-preload-element" style="margin-left: 3px;"></span>
+                            <div class="button-row row-left">
+                                <button class="action-button-sm" af-preload-app="apply-preload-element">Apply</button>
+                                <button class="action-button-sm bg-red" af-preload-app="remove-preload-element">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab9">
+                <div class="card-section">
+                    <div class="card" af-three-app="container">
+                        <h3>ThreeJs</h3>
+                        <p>ThreeJs animations for image and backgrounds.</p>
+                        <!-- Content goes here -->
+                        <div>
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <div>
+                                        <span>types</span>
+                                        <select af-three-app="list"></select>
+                                    </div>
+                                    <div>
+                                        <span>direction</span>
+                                        <select af-three-app="direction"></select>
+                                    </div>
+                                    <div>
+                                        <span>speed</span>
+                                        <input type="number" af-three-app="speed" >
+                                    </div>
+                                    <div>
+                                        <span>depth</span>
+                                        <input type="number" af-three-app="depth" >
+                                    </div>
+                                    <div>
+                                        <span>shards</span>
+                                        <input type="number" af-three-app="shards" >
+                                    </div>
+                                    <div>
+                                        <span>colors</span>
+                                        <input type="text" af-three-app="colors" placeholder="1,0,1 | 1,1,0 | 0,1,0" >
+                                    </div>
+                                    <div>
+                                        <span>size</span>
+                                        <input type="number" af-three-app="size">
+                                    </div>
+                                    <div>
+                                        <span>rows</span>
+                                        <input type="number" af-three-app="rows">
+                                    </div>
+                                    <div>
+                                        <span>cols</span>
+                                        <input type="number" af-three-app="cols">
+                                    </div>
+                                    <div>
+                                        <span>radius</span>
+                                        <input type="number" af-three-app="radius">
+                                    </div>
+                                    <div>
+                                        <span>fintensity</span>
+                                        <input type="number" af-three-app="fintensity">
+                                    </div>
+                                    <div>
+                                        <span>amplitude</span>
+                                        <input type="number" af-three-app="amplitude">
+                                    </div>
+                                    <div>
+                                        <span>frequency</span>
+                                        <input type="number" af-three-app="frequency">
+                                    </div>
+                                    <div>
+                                        <span>range</span>
+                                        <input type="number" af-three-app="range">
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <div>
+                                        <span>Interaction</span>
+                                        <select af-three-app="interaction"></select>
+                                    </div>
+                                    <div>
+                                        <span>easing</span>
+                                        <select af-three-app="easing"></select>
+                                    </div>
+                                    <div>
+                                        <span>spread</span>
+                                        <input type="number" af-three-app="spread">
+                                    </div>
+                                    <div>
+                                        <span>amount</span>
+                                        <input type="number" af-three-app="amount">
+                                    </div>
+                                    <div>
+                                        <span>intensity</span>
+                                        <input type="number" af-three-app="intensity">
+                                    </div>
+                                    <div>
+                                        <span>count</span>
+                                        <input type="number" af-three-app="count">
+                                    </div>
+                                    <div>
+                                        <span>scatter</span>
+                                        <input type="number" af-three-app="scatter">
+                                    </div>
+                                    <div>
+                                        <span>duration</span>
+                                        <input type="number" af-three-app="duration">
+                                    </div>
+                                    <div>
+                                        <span>strength</span>
+                                        <input type="number" af-three-app="strength">
+                                    </div>
+                                    <div>
+                                        <span>distortion</span>
+                                        <input type="number" af-three-app="distortion">
+                                    </div>
+                                    <div>
+                                        <span>color1</span>
+                                        <input type="text" af-three-app="color1">
+                                    </div>
+                                    <div>
+                                        <span>color2</span>
+                                        <input type="text" af-three-app="color2">
+                                    </div>
+                                    <div>
+                                        <span>color3</span>
+                                        <input type="text" af-three-app="color3">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="button-row row-left">
+                                <button class="action-button-sm" af-three-app="apply">Apply</button>
+                                <button class="action-button-sm" af-three-app="remove">Remove</button>
+                                <button class="action-button-sm" af-three-app="reset">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab10">
+                <div class="card-section">
+                    <div class="card" af-svg-app="container">
+                        <h3>SVG Animation</h3>
+                        <p>SVG animations attribute made easy.</p>
+                        <!-- Content goes here -->
+                        <hr style="height: 3px; margin-top: 10px; margin-bottom: 10px;">
+
+                        <div>
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <div>
+                                        <span>Types</span>
+                                        <select af-svg-app="list"></select>
+                                    </div>
+                                    <div>
+                                        <span>speed</span>
+                                        <input type="number" af-svg-app="speed" >
+                                    </div>
+                                    <div>
+                                        <span>color</span>
+                                        <input type="text" af-svg-app="color" >
+                                    </div>
+                                    <div>
+                                        <span>strength</span>
+                                        <input type="number" af-svg-app="strength" >
+                                    </div>
+                                    <div>
+                                        <span>density</span>
+                                        <input type="number" af-svg-app="density" >
+                                    </div>
+                                    <div>
+                                        <span>opacity</span>
+                                        <input type="number" af-svg-app="opacity" >
+                                    </div>
+                                    <div>
+                                        <span>count</span>
+                                        <input type="number" af-svg-app="count" >
+                                    </div>
+                                    <div class="input-row">
+                                        <div>
+                                            <span>min</span>
+                                            <input type="number" af-svg-app="min">
+                                        </div>
+                                        <div>
+                                            <span>max</span>
+                                            <input type="number" af-svg-app="max">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>fadespeed</span>
+                                        <input type="number" af-svg-app="fadespeed" >
+                                    </div>
+                                    <div>
+                                        <span>size</span>
+                                        <input type="number" af-svg-app="size" >
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <div>
+                                        <span>state</span>
+                                        <select af-svg-app="state"></select>
+                                    </div>
+                                    <div>
+                                        <span>intensity</span>
+                                        <input type="number" af-svg-app="intensity" >
+                                    </div>
+                                    <div class="input-row">
+                                        <div>
+                                            <span>X</span>
+                                            <input type="number" af-svg-app="x">
+                                        </div>
+                                        <div>
+                                            <span>Y</span>
+                                            <input type="number" af-svg-app="y">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span>width</span>
+                                        <input type="number" af-svg-app="width">
+                                    </div>
+                                    <div>
+                                        <span>jitter</span>
+                                        <input type="number" af-svg-app="jitter">
+                                    </div>
+                                    <div>
+                                        <span>length</span>
+                                        <input type="number" af-svg-app="length" >
+                                    </div>
+                                    <div>
+                                        <span>fspeed</span>
+                                        <input type="number" af-svg-app="fspeed" >
+                                    </div>
+                                    <div>
+                                        <span>progress</span>
+                                        <input type="number" af-svg-app="progress" >
+                                    </div>
+                                    <div>
+                                        <span>start</span>
+                                        <input type="number" af-svg-app="start" >
+                                    </div>
+                                    <div>
+                                        <span>amplitude</span>
+                                        <input type="number" af-svg-app="amplitude" >
+                                    </div>
+                                    <div>
+                                        <span>frequency</span>
+                                        <input type="number" af-svg-app="frequency" >
+                                    </div>
+                                    <div>
+                                        <span>amount</span>
+                                        <input type="number" af-svg-app="amount" >
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="button-row row-left">
+                                <button class="action-button-sm" af-svg-app="apply">Apply</button>
+                                <button class="action-button-sm" af-svg-app="remove">Remove</button>
+                                <button class="action-button-sm" af-svg-app="reset">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab11">
+                <div class="card-section">
+                    <div class="card" af-move-app="container">
+                        <h3>Flip Animation</h3>
+                        <p>Flip animation with attribute made easy.</p>
+                        <!-- Content goes here -->
+                        <div class="input-group">
+                            <span>ID child or target element. Apply to the selected element.</span>
+                            <input type="text" placeholder="enter a unique i.d or generate one" af-move-app="id" />
+                            <div class="row" style="justify-content: flex-end; column-gap: 5px; margin-top: 5px;">
+                                <button class="action-button-sm" af-move-app="id-create" title="Generate ID">Gen</button>
+                                <button class="action-button-sm" af-move-app="id-apply" title="Apply ID">Apply</button>
+                                <button class="action-button-sm bg-red" af-move-app="id-remove" title="Remove ID">Del</button>
+                            </div>
+                        </div>
+                        <hr style="height: 3px; margin-top: 10px; margin-bottom: 10px;">
+
+                        <div>
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <div>
+                                        <span>Type</span>
+                                        <select af-move-app="type"></select>
+                                    </div>
+                                    <div>
+                                        <span>Easing</span>
+                                        <select af-move-app="easing"></select>
+                                    </div>
+                                    <div>
+                                        <span>Duration</span>
+                                        <input type="number" af-move-app="duration">
+                                    </div>
+                                    <span>Reverse <input type="checkbox" af-move-app="reverse" style="margin-left: 3px;"></span>
+                                    <span>Preservescroll <input type="checkbox" af-move-app="preservescroll" style="margin-left: 3px;"></span>
+                                    <span>Nested <input type="checkbox" af-move-app="nested" style="margin-left: 3px;"></span>
+                                    <span>Opacity <input type="checkbox" af-move-app="opacity" style="margin-left: 3px;"></span>
+                                    <span>Absolute <input type="checkbox" af-move-app="absolute" style="margin-left: 3px;"></span>
+                                </div>
+                                <div class="input-group">
+                                    <div>
+                                        <span>State</span>
+                                        <select af-move-app="state"></select>
+                                    </div>
+                                    <div>
+                                        <div class="input-row">
+                                            <div>
+                                                <span>Stagger</span>
+                                                <input type="number" af-move-app="stagger">
+                                            </div>
+                                            <div>
+                                                <span>Delay</span>
+                                                <input type="number" af-move-app="delay">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <span>Loop</span>
+                                        <input type="text" af-move-app="loop" placeholder="false, true, 1, 2, 3">
+                                    </div>
+                                    <div>
+                                        <span>Targets <small>(Important for move flip)</small></span>
+                                        <input type="text" af-move-app="targets">
+                                    </div>
+                                    <div>
+                                        <span>Class name <small>(Important for toggle flip)</small></span>
+                                        <input type="text" af-move-app="classname">
+                                    </div>
+                                    <div>
+                                        <span>View range <small>(Important for view state)</small></span>
+                                        <input type="text" af-move-app="viewrange">
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="button-row row-left">
+                                <button class="action-button-sm" af-move-app="apply">Apply</button>
+                                <button class="action-button-sm" af-move-app="remove">Remove</button>
+                                <button class="action-button-sm" af-move-app="reset">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab12">
+                <div class="card-section" af-extra-app="container">
+                    <div class="card">
+                        <h3>App Extras</h3>
+                        <p>Our app extras provides features that support you during usage.</p>
+                        <!-- Card content similar to above -->
+                        <div class="input-row">
+                            <div class="input-group">
+                                <p>Copy-paste components from 1 page to another.</p>
+                                <div>
+                                    <span>Components</span>
+                                    <select af-extra-app="components">
+                                        <option selected disabled>Select component</option>
+                                    </select>
+                                </div>
+                                <div class="row-right">
+                                    <button class="action-button-sm" af-extra-app="component-reload">Reload</button>    
+                                    <button class="action-button-sm" af-extra-app="component-apply">Apply</button>
+                                </div>             
+                            </div>
+                            <div class="input-group">
+                                <p>Detect & render live attributes and values</p>
+                                <small af-extra-app="detect-label"></small>
+                                
+                                <div>
+                                    <span>interval</span>
+                                    <input type="number" af-extra-app="detect-interval" placeholder="100ms">
+                                </div>
+                                <span>Enable Detection <input type="checkbox" af-extra-app="detect" style="margin-left: 3px;"></span>
+                                <div class="button-row">
+                                    <button class="action-button" af-extra-app="detect-apply">Apply</button>
+                                </div>           
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const tabButtons = document.querySelectorAll(".tab-button");
+                const tabContents = document.querySelectorAll(".tab-content");
+            
+                tabButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove("active"));
+                    tabContents.forEach(content => content.classList.remove("active"));
+            
+                    // Add active class to the clicked button and corresponding content
+                    button.classList.add("active");
+                    const tabId = button.getAttribute("data-tab");
+                    document.getElementById(tabId).classList.add("active");
+                });
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', ()=>{
+                const copyableBtns = document.querySelectorAll(`[af-copyer="btn"]`);
+                copyableBtns.forEach((btn) => {
+                    btn.addEventListener('click', ()=>{
+                        const parent = btn.parentElement;
+                        // text input
+                        const textInput = parent.querySelector(`[af-copyer="text"]`);
+                        // if textInput element is not an input element
+                        //const input = document.createElement('input');
+                        //document.body.appendChild(input);
+                        //input.value = textInput.textContent;
+                        if (copyToClipboard(textInput)) {
+                            const originalText = btn.textContent;
+                            btn.textContent = 'Copied!';
+                            setTimeout(() => {
+                                btn.textContent = originalText;
+                            }, 2000);
+                        }
+                    });
+                });
+
+                /** 
+                 * Note Only an input element has the ability to use the select and setSelectionRange 
+                 * */
+                function copyToClipboard(ele) {
+                    // Get the input field
+                    // Select the text in the input field
+                    ele.select();
+                    // Copy the selected text to the clipboard
+                    document.execCommand("copy");
+                    // Deselect the text to avoid unexpected behavior
+                    ele.setSelectionRange(0, 0);
+                    // Notify the user
+                    //alert("Text copied to clipboard: " + ele.value);
+                    // document.body.removeChild(ele)
+                    return true
+                }
+            })
+        </script>
+        <script src="../dist/staruser.js"></script>
+        <!-- <script src="../dist/pro.js"></script> -->
+         <script src="https://afap.app/libs/afap/afap.js?afapkey=39JUR5X753CG7ZP894P0"></script>
+        <script src="../dist/usage_plugin.js"></script>
+        <script src="../dist/app.js"></script>
+    </body>
+</html>
